@@ -1,0 +1,51 @@
+2024/12/14 09:01:26.784104 main.go:50: Starting Reddit Clone Server
+2024/12/14 09:01:26.784363 main.go:51: HTTP Port: 8080, Actor Port: 8085
+2024/12/14 09:01:26.790826 main.go:55: Actor system initialized
+2024/12/14 09:01:26.793062 main.go:70: Remote actor system started
+2024/12/14 09:01:26.793062 social_engine.go:51: Social engine started
+2024/12/14 09:01:26.793062 main.go:82: Social engine actor spawned with PID: Address:"127.0.0.1" Id:"social"
+2024/12/14 09:01:26.794132 main.go:86: Starting REST server on port 8080
+2024/12/14 09:01:26.794132 server.go:556: Starting REST server on :8080
+2024/12/14 09:02:23.504969 server.go:103: Started POST /api/users
+2024/12/14 09:02:23.504969 server.go:148: Processing registration for user: alice
+2024/12/14 09:02:23.515895 social_engine.go:109: New user onboarded: alice
+2024/12/14 09:02:23.515895 server.go:166: Successfully registered user: alice
+2024/12/14 09:02:23.516447 server.go:105: Completed POST /api/users in 11.4775ms
+2024/12/14 09:02:45.371044 server.go:103: Started POST /api/users
+2024/12/14 09:02:45.371044 server.go:148: Processing registration for user: bob
+2024/12/14 09:02:45.371594 social_engine.go:109: New user onboarded: bob
+2024/12/14 09:02:45.371594 server.go:166: Successfully registered user: bob
+2024/12/14 09:02:45.371594 server.go:105: Completed POST /api/users in 550.1µs
+2024/12/14 09:03:17.226886 server.go:103: Started POST /api/forums
+2024/12/14 09:03:17.227448 social_engine.go:143: New forum created: programming
+2024/12/14 09:03:17.227448 server.go:105: Completed POST /api/forums in 562µs
+2024/12/14 09:03:37.159574 server.go:103: Started POST /api/forums/programming/join
+2024/12/14 09:03:37.160956 social_engine.go:184: User alice joined forum programming
+2024/12/14 09:03:37.162210 server.go:105: Completed POST /api/forums/programming/join in 2.6355ms
+2024/12/14 09:03:50.761491 server.go:103: Started POST /api/forums/programming/join
+2024/12/14 09:03:50.762003 social_engine.go:184: User bob joined forum programming
+2024/12/14 09:03:50.762003 server.go:105: Completed POST /api/forums/programming/join in 512.5µs
+2024/12/14 09:04:39.290690 server.go:103: Started POST /api/posts
+2024/12/14 09:04:39.291199 social_engine.go:287: New content created in programming by alice
+2024/12/14 09:04:39.291199 server.go:105: Completed POST /api/posts in 509.4µs
+2024/12/14 09:05:15.519486 server.go:103: Started GET /api/feed
+2024/12/14 09:05:15.519996 server.go:105: Completed GET /api/feed in 510µs
+2024/12/14 09:05:53.080169 server.go:103: Started POST /api/posts/cnt_e1a2ee8a2babd7d9/comments
+2024/12/14 09:05:53.080169 server.go:133: Sending error response: Parent feedback not found
+2024/12/14 09:05:53.080769 server.go:105: Completed POST /api/posts/cnt_e1a2ee8a2babd7d9/comments in 599.9µs
+2024/12/14 09:06:12.460860 server.go:103: Started POST /api/posts/cnt_e1a2ee8a2babd7d9/vote
+2024/12/14 09:06:12.461420 server.go:105: Completed POST /api/posts/cnt_e1a2ee8a2babd7d9/vote in 560.2µs
+2024/12/14 09:06:15.406828 server.go:103: Started GET /api/feed
+2024/12/14 09:06:15.407340 server.go:105: Completed GET /api/feed in 512.3µs
+2024/12/14 09:06:53.316576 server.go:103: Started POST /api/messages
+2024/12/14 09:06:53.316576 social_engine.go:521: Message delivered from alice to bob
+2024/12/14 09:06:53.317130 server.go:105: Completed POST /api/messages in 553.8µs
+2024/12/14 09:07:09.077494 server.go:103: Started GET /api/messages/bob
+2024/12/14 09:07:09.078904 social_engine.go:547: Retrieved 1 messages for user bob
+2024/12/14 09:07:09.078904 server.go:105: Completed GET /api/messages/bob in 1.4097ms
+2024/12/14 09:07:24.345380 server.go:103: Started POST /api/messages
+2024/12/14 09:07:24.345888 social_engine.go:521: Message delivered from alice to bob
+2024/12/14 09:07:24.345888 server.go:105: Completed POST /api/messages in 507.6µs
+2024/12/14 09:07:28.174355 server.go:103: Started GET /api/messages/bob
+2024/12/14 09:07:28.174355 social_engine.go:547: Retrieved 2 messages for user bob
+2024/12/14 09:07:28.174910 server.go:105: Completed GET /api/messages/bob in 555.9µs

@@ -1,0 +1,185 @@
+// proto/messages.proto
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./proto";
+
+// User Messages
+message OnboardUser {
+    string user_handle = 1;
+}
+
+message OnboardUserResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message ActivityStatus {
+    string user_handle = 1;
+    bool is_online = 2;
+}
+
+message ActivityStatusResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+// Forum Messages
+message CreateForum {
+    string name = 1;
+}
+
+message CreateForumResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message JoinForum {
+    string user_handle = 1;
+    string subreddit = 2;
+}
+
+message JoinForumResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message LeaveForum {
+    string user_handle = 1;
+    string subreddit = 2;
+}
+
+message LeaveForumResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message GetForumDetails {
+    string forum_name = 1;
+}
+
+message ForumDetails {
+    string name = 1;
+    int32 member_count = 2;
+    repeated Content contents = 3;
+    bool success = 4;
+    string message = 5;
+}
+
+// Content Messages
+message Content {
+    string content_id = 1;
+    string creator = 2;
+    string subreddit = 3;
+    string heading = 4;
+    string body = 5;
+    int64 timestamp = 6;
+    repeated Feedback feedback = 7;
+    map<string, int32> reactions = 8;
+    int32 points = 9;
+    bool is_share = 10;
+    string original_content_id = 11;
+}
+
+message CreateContent {
+    string user_handle = 1;
+    string subreddit = 2;
+    string heading = 3;
+    string body = 4;
+    bool is_share = 5;
+    string original_content_id = 6;
+}
+
+message CreateContentResponse {
+    bool success = 1;
+    string message = 2;
+    string content_id = 3;
+}
+
+message GetPost {
+    string content_id = 1;
+}
+
+message GetPostResponse {
+    bool success = 1;
+    string message = 2;
+    Content content = 3;
+}
+
+// Feedback Messages
+message Feedback {
+    string feedback_id = 1;
+    string content_id = 2;
+    string creator = 3;
+    string body = 4;
+    int64 timestamp = 5;
+    string parent_id = 6;
+    repeated Feedback replies = 7;
+    map<string, int32> reactions = 8;
+    int32 points = 9;
+}
+
+message CreateFeedback {
+    string user_handle = 1;
+    string content_id = 2;
+    string parent_id = 3;
+    string body = 4;
+}
+
+message CreateFeedbackResponse {
+    bool success = 1;
+    string message = 2;
+    string feedback_id = 3;
+}
+
+// Reaction Messages
+message Reaction {
+    string user_handle = 1;
+    string item_id = 2;
+    bool is_positive = 3;
+    bool is_content = 4;
+}
+
+message ReactionResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+// Feed Messages
+message GetFeed {
+    string user_handle = 1;
+    string sort_method = 2;
+    int32 limit = 3;
+}
+
+message FeedBundle {
+    bool success = 1;
+    string message = 2;
+    repeated Content contents = 3;
+}
+
+// Chat Messages
+message DirectChat {
+    string message_id = 1;
+    string sender = 2;
+    string receiver = 3;
+    string content = 4;
+    int64 timestamp = 5;
+    bool seen = 6;
+}
+
+message ChatResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message GetChats {
+    string user_handle = 1;
+}
+
+message ChatBundle {
+    bool success = 1;
+    string message = 2;
+    repeated DirectChat messages = 3;
+}
